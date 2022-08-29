@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 80vh;
+
+  /* grid00 */
+
+  display: grid;
+  gap: 5px;
+  /* grid-template-columns: 1fr 2fr 1fr; */
+  grid-template-areas:
+    "header header header"
+    "title title title"
+    "banner banner bb1"
+    "banner banner bb2"
+    "side-menu main main"
+    "tags main main"
+    "recently main main"
+    "footer footer footer";
+}
+
+.wrapper > * {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  background: blue;
+  grid-area: header;
+}
+.title {
+  background: yellowgreen;
+  grid-area: title;
+}
+.banner {
+  background: linear-gradient(to right, red, blue);
+  min-height: 20vh;
+  grid-area: banner;
+}
+.bb1 {
+  background: purple;
+  grid-column-start: 2;
+  grid-area: bb1;
+}
+.bb2 {
+  background: brown;
+  grid-area: bb2;
+}
+.side-menu {
+  background: radial-gradient(red, blue, green);
+  min-height: 20vh;
+  grid-area: side-menu;
+}
+.tags {
+  background: orange;
+  grid-area: tags;
+}
+
+.recently {
+  background: red;
+  grid-area: recently;
+}
+.main {
+  grid-area: main;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: white;
+  flex-direction: row;
+}
+
+.main > div {
+  border: 1px solid #ccc;
+  margin: 10px;
+  min-height: 150px;
+  min-height: 200px;
+  background: yellowgreen;
+  border-radius: 5px;
+}
+.footer {
+  background: black;
+  color: white;
+  grid-area: footer;
+}
+
+/* ipad and above  */
+@media (max-width: 768px) {
+  .wrapper {
+    /* grid00 */
+
+    display: grid;
+    gap: 5px;
+
+    grid-template-areas:
+      "header header "
+      "title title"
+      "banner banner"
+      "bb1 bb2"
+      "side-menu side-menu"
+      "main main"
+      "tags recently"
+      "footer footer";
+  }
+}
+/* mobile and smaller 00 */
+
+@media (max-width: 500px) {
+  .wrapper {
+    display: grid;
+    gap: 5px;
+
+    grid-template-areas:
+      "header"
+      "title"
+      "banner"
+      "bb1"
+      "bb2"
+      "side-menu"
+      "main"
+      "tags"
+      "recently"
+      "footer";
+  }
+}
